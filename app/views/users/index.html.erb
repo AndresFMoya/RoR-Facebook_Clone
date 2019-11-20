@@ -1,0 +1,8 @@
+<div>
+  <% @users.each do |user| %>
+    <ul>
+      <%= link_to user.name, user %>
+    </ul>
+  <% end %>
+</div>
+<p><%= link_to "Sign up", new_user_registration_path %></p>
