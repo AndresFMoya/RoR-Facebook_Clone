@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,15 +9,15 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
-      flash[:success] = "Post created!"
-      redirect_to root_url
-    end
+    return unless @post.save
+
+    flash[:success] = 'Post created!'
+    redirect_to root_url
   end
 
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:success] = 'Post deleted'
     redirect_to root_url
   end
 

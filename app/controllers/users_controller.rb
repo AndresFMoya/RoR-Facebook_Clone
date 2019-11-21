@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -5,25 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def create
-  #   @user = User.find(params[:id])
-  #   if @user.save
-  #     redirect_to @user
-  #   else
-  #     render 'registrations#new'
-  #   end
-  # end
-
   def show
     @user = User.find(params[:id])
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 end
