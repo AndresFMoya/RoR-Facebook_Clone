@@ -2,7 +2,7 @@
 This project consist of building and Test a Facebook clone, with a large portion of the core Facebook user functionality. 
 
 ## ERD
-![Alt text](lib/assets/Facebook Clone ERD.jpeg)
+![Alt text](lib/assets/Facebook Clone ERD.jpg)
 
 ## Getting started
   
