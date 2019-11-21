@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "SignIns", type: :feature do
+
+  before :each do
+    User.create(name: 'User', email: 'user@example.com', password: "user123")
+  end
+
   scenario "Valid User Sign in" do
     visit "/users/sign_in"
     fill_in "Name", with: "User"
