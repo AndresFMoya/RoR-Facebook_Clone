@@ -23,6 +23,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @comments = @post.comments
+    @likes = @post.likes
   end
 
   private

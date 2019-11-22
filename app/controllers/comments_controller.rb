@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     return unless @comment.save
-
     flash[:success] = "Comment created!"
     redirect_to root_url
   end
