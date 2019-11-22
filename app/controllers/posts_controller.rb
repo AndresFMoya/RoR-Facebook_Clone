@@ -11,13 +11,13 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     return unless @post.save
 
-    flash[:success] = 'Post created!'
+    flash[:success] = "Post created!"
     redirect_to root_url
   end
 
   def destroy
     @post.destroy
-    flash[:success] = 'Post deleted'
+    flash[:success] = "Post deleted"
     redirect_to root_url
   end
 
