@@ -1,0 +1,10 @@
+<h1> <%= @user.name %> </h1>
+<div class="post">
+  <%= render 'layouts/post' %>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <%= render post %>
+      <%= render 'layouts/comment' %>
+    <% end%>
+  <% end %>
+</div>
