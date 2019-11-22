@@ -2,9 +2,15 @@
 
 <div>
   <% @posts.each do |post| %>
-    <ul>
+    <ul class = "post">
       <%= post.content %>
-      <%= post.user.name %>
+      <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>
+      <% if post.comments.any? %>
+            <h3>(<%= post.comments.count %>) Comments </h3>
+            <ol class="Comments">
+             <%= render post.comments %>
+            </ol>
+          <% end %>
     </ul>
   <% end %>
 </div>
