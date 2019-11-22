@@ -3,6 +3,7 @@
 <div>
   <% @posts.each do |post| %>
     <ul class = "post">
+      <% post.id %>
       <%= post.content %>
       <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>
       <% if post.comments.any? %>
@@ -12,7 +13,16 @@
             </ol>
           <% end %>
 
-      <%= render 'layouts/comment_form' %>
+      <%= form_with(model: Comment.new) do |f| %>
+
+        <%= f.label :content %>
+        <%= f.text_field :content, class: 'form-control' %>
+        <%= f.hidden_field :post_id, value: post.id %>
+
+
+
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
 
     </ul>
 
