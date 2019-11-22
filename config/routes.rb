@@ -3,6 +3,12 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  root 'posts#index'
   resource :posts
+
+  authenticated :user do
+    root 'posts#index'
+  end
+  devise_scope :user do
+    root to: 'devise/sessions#new', as: :sign_up_root
+  end
 end
