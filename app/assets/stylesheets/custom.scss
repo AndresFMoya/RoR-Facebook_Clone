@@ -3,6 +3,7 @@
 
 // Variables
 $facebook: #3b5998;
+$entrance: #edf0f5;
 
 // Header
 header {
@@ -37,9 +38,9 @@ body {
   max-width: 100%;
 }
 
-// Sign Up Area
+// Sign Up Form
 .sign-back { 
-  background-color: #edf0f5;
+  background-color: $entrance;
   padding-bottom: 3rem;
   p { margin-left: 4rem; } 
 }
@@ -58,20 +59,30 @@ body {
   width: 50%;
   h2 { margin-left: 4rem; }
   .field { 
-    margin-left: 4rem;
-    .su-btn {
-      background-color: RGB(74, 158, 59);
-      color: white;
-      font-weight: bold;
-    } 
-  }
-  .form-area {
-    border-radius: 10px;
-    border: none;
-    height: 3rem;
-    width: 30rem;
+    margin-left: 4rem; 
   }
   .login {
     font-weight: bold;
   }
+}
+.form-area {
+  border-radius: 10px;
+  border: none;
+  height: 3rem;
+  width: 30rem;
+}
+.su-btn {
+  background-color: RGB(74, 158, 59);
+  color: white;
+  font-weight: bold;
+}
+
+// Login Form
+
+.login-form {
+  background-color: $entrance;
+  text-align: center;
+  // margin-top: -2rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
 }
