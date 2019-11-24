@@ -1,2 +1,77 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// Variables
+$facebook: #3b5998;
+
+// Header
+header {
+  background-color: $facebook;
+  font-weight: bold;
+  font-size: 3rem;
+  color: white;
+  height: 8rem;
+  div {
+    font-size: 2rem;
+    width: 25%;
+  }
+}
+.fb {
+  float: left;
+  left: 2.5rem;
+  position: relative;
+  top: 1.5rem;
+}
+.top-panel {
+  float: right;
+  position: relative;
+  top: 1rem;
+  span {
+    padding: 0.5rem;
+  }
+}
+
+// Body
+body {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+// Sign Up Area
+.sign-back { 
+  background-color: #edf0f5;
+  padding-bottom: 3rem;
+  p { margin-left: 4rem; } 
+}
+.clearfix {
+  content: "";
+  clear: both;
+  display: block;
+}
+.sign-left {
+  float: left;
+  padding: 4rem;
+  width: 50%;
+}
+.sign-right {
+  float: right;
+  width: 50%;
+  h2 { margin-left: 4rem; }
+  .field { 
+    margin-left: 4rem;
+    .su-btn {
+      background-color: RGB(74, 158, 59);
+      color: white;
+      font-weight: bold;
+    } 
+  }
+  .form-area {
+    border-radius: 10px;
+    border: none;
+    height: 3rem;
+    width: 30rem;
+  }
+  .login {
+    font-weight: bold;
+  }
+}
