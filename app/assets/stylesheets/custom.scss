@@ -89,7 +89,7 @@ body {
 
 // Footer (Login & Sign up)
 footer {
-  padding: 1rem;
+  padding: 0.1rem;
 }
 .ftr-1 {
   li {
@@ -106,4 +106,8 @@ footer {
     padding-top: 0.5rem;
     margin-left: 4rem; 
   }
+}
+.lang {
+  position: relative;
+  top: 0.5rem;
 }
