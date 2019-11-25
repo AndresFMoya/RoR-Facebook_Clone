@@ -3,8 +3,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  resource :posts
-  resource :comments
+  resources :posts
+  resources :comments
+  resources :likes
 
   authenticated :user do
     root 'posts#index'
