@@ -2,6 +2,7 @@
 
 class LikesController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_like, only: [:destroy]
 
   def new
     @like = current_user.likes.build
@@ -14,9 +15,13 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like.delete
+    @like.destroy
     flash[:success] = 'You unlike this post!'
     redirect_to root_url
+  end
+
+  def find_like
+    @like = current_user.likes.find_by(like_params)
   end
 
   private

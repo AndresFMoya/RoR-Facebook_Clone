@@ -15,7 +15,7 @@
 
       <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
       <% if pre_like %>
-          <%= form_with(model: Like, method: :delete, remote: true) do |f| %>
+          <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
             <%= f.hidden_field :post_id, value: post.id %>
             <%= f.submit 'Unlike', class: "btn btn-primary" %>
         <% end %>
