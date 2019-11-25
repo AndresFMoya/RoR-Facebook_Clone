@@ -86,3 +86,24 @@ body {
   padding: 2rem;
   padding-bottom: 4rem;
 }
+
+// Footer (Login & Sign up)
+footer {
+  padding: 1rem;
+}
+.ftr-1 {
+  li {
+    display: inline;
+    color: #436CD6;
+    font-size: 1.15rem;
+    padding-right: 2.5rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p { 
+    font-size: 1.15rem;
+    padding-top: 0.5rem;
+    margin-left: 4rem; 
+  }
+}

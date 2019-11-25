@@ -15,5 +15,8 @@
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
     <%= yield %>
+    <% if action_name == 'new' %>
+      <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>
