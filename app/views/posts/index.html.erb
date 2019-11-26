@@ -4,37 +4,39 @@
   <% @posts.each do |post| %>
     <ul class = "post">
       <% post.id %>
+      <p class="user"><%= link_to post.user.name, user_path(post.user) %></p>
       <%= post.content %>
+      <%= post.likes.count %>
       <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>
-      <% if post.comments.any? %>
-            <h3>(<%= post.comments.count %>) Comments </h3>
-            <ol class="Comments">
-             <%= render post.comments %>
-            </ol>
-          <% end %>
 
       <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
       <% if pre_like %>
-          <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
-            <%= f.hidden_field :post_id, value: post.id %>
-            <%= f.submit 'Unlike', class: "btn btn-primary" %>
+        <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
+          <%= f.hidden_field :post_id, value: post.id %>
+          <%= f.submit 'Unlike', class: "btn btn-primary" %>
         <% end %>
       <% else %>
-          <%= form_with(model:Like, method: :post) do |f| %>
-            <%= f.hidden_field :post_id, value: post.id %>
-            <%= f.submit 'Like', class: "btn btn-primary" %>
-          <% end %>
+        <%= form_with(model:Like, method: :post) do |f| %>
+          <%= f.hidden_field :post_id, value: post.id %>
+          <%= f.submit 'Like', class: "btn btn-primary" %>
+        <% end %>
       <% end %>
 
-      <%= form_with(model: Comment.new) do |f| %>
+      <% if post.comments.any? %>
+        <h5>(<%= post.comments.count %>) Comments </h5>
+        <ol class="Comments">
+          <%= render post.comments %>
+        </ol>
+      <% end %>
 
+      
+
+      <%= form_with(model: Comment.new) do |f| %>
         <%= f.label :content %>
         <%= f.text_field :content, class: 'form-control' %>
         <%= f.hidden_field :post_id, value: post.id %>
         <%= f.submit "Save", class: "btn btn-primary" %>
       <% end %>
-
     </ul>
-
   <% end %>
 </div>
