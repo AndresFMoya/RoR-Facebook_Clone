@@ -1,7 +1,21 @@
 <div>
   <% @users.each do |user| %>
     <ul>
-      <%= link_to user.name, user %>
+      <span><%= link_to user.name, user %></span>
+      <% if !user.friend? %>
+        <span>
+          <%= form_with(model: Friendship, method: :post) do |f| %>
+            <%= f.submit 'Request Friend', class: "btn btn-primary" %>
+            <%= f.hidden_field :confirmed, value: false %>
+          <% end %>
+        </span>
+      <% elsif pending_friends.include?(user) %>
+        <span>Friend Requested!</span>
+      <% elsif friends_request.include?(user) %>
+        <%= form_with(model: Friendship, method: :update) do |f| %>
+          <%= f.submit 'Accept Friend', class: "btn btn-primary" %>
+          <%= f.hidden_field :confirmed, value: true %>
+        <% end %>
     </ul>
   <% end %>
 </div>
