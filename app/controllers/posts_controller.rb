@@ -9,9 +9,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    return unless @post.save
-
+    if @post.save
     flash[:success] = 'Post created!'
+    else
+      flash[:danger] = "Post content can't be blank"
+    end
     redirect_back(fallback_location: root_path)
   end
 

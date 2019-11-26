@@ -9,7 +9,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    flash[:success] = 'Comment created!' if @comment.save
+    if @comment.save
+    flash[:success] = 'Comment created!'
+    else
+      flash[:danger] = "Comment can't be blank"
+    end
     redirect_back(fallback_location: root_path)
   end
 
