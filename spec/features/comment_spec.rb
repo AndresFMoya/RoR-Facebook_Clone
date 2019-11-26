@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature "Comments", type: :feature do
+RSpec.feature 'Comments', type: :feature do
   before :each do
     @user = User.create(name: 'User', email: 'user@example.com', password: 'user123')
     @post = @user.posts.build(content: 'test post', id: 1)

@@ -9,7 +9,7 @@ RSpec.feature 'SignUps', type: :feature do
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'user123'
     click_button 'Sign up'
-    expect(page).to have_text("Welcome! You have signed up successfully")
+    expect(page).to have_text('Welcome! You have signed up successfully')
   end
 
   scenario 'Invalid User Sign Up' do

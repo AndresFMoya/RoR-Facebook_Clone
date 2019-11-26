@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature "Comments", type: :feature do
+# rubocop: disable Metrics/BlockLength
+RSpec.feature 'Comments', type: :feature do
   before :each do
     @user = User.create(name: 'User', email: 'user@example.com', password: 'user123')
     @post = @user.posts.build(content: 'test post', id: 1)
@@ -19,7 +22,7 @@ RSpec.feature "Comments", type: :feature do
   end
 
   scenario 'Unlike a Post' do
-    @like = @user.likes.build(post_id:1)
+    @like = @user.likes.build(post_id: 1)
     @like.save
 
     visit '/users/sign_in'
@@ -32,3 +35,4 @@ RSpec.feature "Comments", type: :feature do
     expect(page).to have_text('0 Likes')
   end
 end
+# rubocop: enable Metrics/BlockLength

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-    flash[:success] = 'Comment created!'
+      flash[:success] = 'Comment created!'
     else
       flash[:danger] = "Comment can't be blank"
     end

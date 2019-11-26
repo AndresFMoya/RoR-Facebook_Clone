@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-    flash[:success] = 'Post created!'
+      flash[:success] = 'Post created!'
     else
       flash[:danger] = "Post content can't be blank"
     end

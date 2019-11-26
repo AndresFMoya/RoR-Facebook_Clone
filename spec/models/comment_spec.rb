@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :model do
   before(:each) do
     @post = user.posts.build(content: 'test post', id: 1)
     @post.save
-    @comment = user.comments.build(post_id:1, content: 'Test comment')
+    @comment = user.comments.build(post_id: 1, content: 'Test comment')
   end
 
   it 'should not be blank' do
@@ -16,7 +16,7 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'should not be blank' do
-    comment = user.comments.build(post_id:1, content: '  ')
+    comment = user.comments.build(post_id: 1, content: '  ')
     expect(comment).to_not be_valid
   end
 
