@@ -11,13 +11,13 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build(like_params)
     flash[:success] = 'You like this post!' if @like.save
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @like.destroy
     flash[:success] = 'You unlike this post!'
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def find_like

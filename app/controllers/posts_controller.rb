@@ -12,13 +12,13 @@ class PostsController < ApplicationController
     return unless @post.save
 
     flash[:success] = 'Post created!'
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @post.destroy
     flash[:success] = 'Post deleted'
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def index
