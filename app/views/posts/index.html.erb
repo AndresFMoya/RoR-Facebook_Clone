@@ -6,7 +6,7 @@
       <% post.id %>
       <p class="user"><%= link_to post.user.name, user_path(post.user) %></p>
       <%= post.content %>
-      <%= post.likes.count %>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>
 
       <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
@@ -29,14 +29,13 @@
         </ol>
       <% end %>
 
-      
-
       <%= form_with(model: Comment.new) do |f| %>
         <%= f.label :content %>
         <%= f.text_field :content, class: 'form-control' %>
         <%= f.hidden_field :post_id, value: post.id %>
         <%= f.submit "Save", class: "btn btn-primary" %>
       <% end %>
+      
     </ul>
   <% end %>
 </div>

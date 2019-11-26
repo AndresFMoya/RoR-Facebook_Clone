@@ -10,13 +10,13 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     flash[:success] = 'Comment created!' if @comment.save
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @comment.destroy
     flash[:success] = 'Comment deleted'
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def comment_params
