@@ -2,7 +2,7 @@
   <% @users.each do |user| %>
     <ul>
       <span><%= link_to user.name, user %></span>
-      <% if !user.friend? %>
+      <% if !current_user.friends.include?(user) %>
         <span>
           <%= form_with(model: Friendship, method: :post) do |f| %>
             <%= f.submit 'Request Friend', class: "btn btn-primary" %>
@@ -11,11 +11,12 @@
         </span>
       <% elsif pending_friends.include?(user) %>
         <span>Friend Requested!</span>
-      <% elsif friends_request.include?(user) %>
+      <% elsif friend_requests.include?(user) %>
         <%= form_with(model: Friendship, method: :update) do |f| %>
           <%= f.submit 'Accept Friend', class: "btn btn-primary" %>
           <%= f.hidden_field :confirmed, value: true %>
         <% end %>
+      <% end %>
     </ul>
   <% end %>
 </div>
