@@ -7,14 +7,18 @@
           <%= form_with(model: Friendship, method: :post) do |f| %>
             <%= f.submit 'Request Friend', class: "btn btn-primary" %>
             <%= f.hidden_field :confirmed, value: false %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :friend_id, value: user.id %>
           <% end %>
         </span>
-      <% elsif pending_friends.include?(user) %>
-        <span>Friend Requested!</span>
       <% elsif friend_requests.include?(user) %>
-        <%= form_with(model: Friendship, method: :update) do |f| %>
+        <span>Friend Requested!</span>
+      <% elsif pending_friends.include?(user) %>
+        <%= form_with(model: Friendship, method: :patch) do |f| %>
           <%= f.submit 'Accept Friend', class: "btn btn-primary" %>
           <%= f.hidden_field :confirmed, value: true %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :friend_id, value: user.id %>
         <% end %>
       <% end %>
     </ul>
