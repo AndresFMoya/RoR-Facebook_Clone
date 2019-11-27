@@ -2,25 +2,35 @@
   <% @users.each do |user| %>
     <ul>
       <span><%= link_to user.name, user %></span>
-      <% if !current_user.friend_requests.include?(user) %>
-        <span>
-          <%= form_with(model: Friendship, method: :post) do |f| %>
-            <%= f.submit 'Request Friend', class: "btn btn-primary" %>
-            <%= f.hidden_field :confirmed, value: 'false' %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :friend_id, value: user.id %>
-          <% end %>
-        </span>
+      <% if user.id == current_user.id %>
+
       <% elsif current_user.pending_friends.include?(user) %>
-        <span>Friend Requested!</span>
-      <% elsif current_user.friend_requests.include?(user) %>
         <%= form_with(model: Friendship, method: :patch) do |f| %>
+          <%= f.submit 'Friend requested!', class: "btn btn-primary", disabled: true %>
+        <% end %>
+
+      <% elsif current_user.friend_requests.include?(user) %>
+        <%= form_with(method: :patch, url: '/friendships/:id') do |f| %>
           <%= f.submit 'Accept Friend', class: "btn btn-primary" %>
           <%= f.hidden_field :confirmed, value: true %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :friend_id, value: user.id %>
         <% end %>
+
+      <% elsif current_user.friends.include?(user) %>
+        <%= form_with(model: Friendship, method: :patch) do |f| %>
+          <%= f.submit 'Friends', class: "btn btn-primary", disabled: true %>
+        <% end %>
+
+      <% else %>
+        <%= form_with(model: Friendship, method: :post) do |f| %>
+          <%= f.submit 'Request Friend', class: "btn btn-primary" %>
+          <%= f.hidden_field :confirmed, value: 'false' %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :friend_id, value: user.id %>
+        <% end %>
       <% end %>
+
     </ul>
   <% end %>
 </div>

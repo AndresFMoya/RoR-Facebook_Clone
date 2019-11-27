@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :likes
   resources :posts
-  resources :friendships, only: [:create, :update, :destroy]
+  resources :friendships
 
   delete '/likes', to: 'likes#destroy'
   authenticated :user do
