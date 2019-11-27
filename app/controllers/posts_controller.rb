@@ -9,16 +9,18 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    return unless @post.save
-
-    flash[:success] = 'Post created!'
-    redirect_to root_url
+    if @post.save
+      flash[:success] = 'Post created!'
+    else
+      flash[:danger] = "Post content can't be blank"
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @post.destroy
     flash[:success] = 'Post deleted'
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   def index

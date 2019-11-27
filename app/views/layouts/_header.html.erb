@@ -1,7 +1,12 @@
-<header>
-  <% if signed_in? %>
-    <span><%= link_to "Log out", destroy_user_session_path, method: :delete %></span>
-  <% else %>
-    <span><%= link_to "Sign up", new_user_registration_path %></span>
-  <% end %>
+<header style="border: 1px solid;">
+  <span class="fb">facebook</span>
+  <div class="top-panel">
+    <% if signed_in? %>
+      <span><%= link_to "Log out", destroy_user_session_path, method: :delete %></span>
+    <% else %>
+      <% if action_name != "new" %>
+        <span><%= link_to "Sign up", new_user_registration_path %></span>
+      <% end %>
+    <% end %>
+  </div>
 </header>

@@ -1,0 +1,113 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Variables
+$facebook: #3b5998;
+$entrance: #edf0f5;
+
+// Header
+header {
+  background-color: $facebook;
+  font-weight: bold;
+  font-size: 3rem;
+  color: white;
+  height: 8rem;
+  div {
+    font-size: 2rem;
+    width: 25%;
+  }
+}
+.fb {
+  float: left;
+  left: 2.5rem;
+  position: relative;
+  top: 1.5rem;
+}
+.top-panel {
+  float: right;
+  position: relative;
+  top: 1rem;
+  span {
+    padding: 0.5rem;
+  }
+}
+
+// Body
+body {
+  overflow: scroll;
+  max-width: 100%;
+}
+
+// Sign Up Form
+.sign-back { 
+  background-color: $entrance;
+  padding-bottom: 3rem;
+  p { margin-left: 4rem; } 
+}
+.clearfix {
+  content: "";
+  clear: both;
+  display: block;
+}
+.sign-left {
+  float: left;
+  padding: 4rem;
+  width: 50%;
+}
+.sign-right {
+  float: right;
+  width: 50%;
+  h2 { margin-left: 4rem; }
+  .field { 
+    margin-left: 4rem; 
+  }
+  .login {
+    font-weight: bold;
+  }
+}
+.form-area {
+  border-radius: 10px;
+  border: none;
+  height: 3rem;
+  width: 30rem;
+}
+.su-btn {
+  background-color: RGB(74, 158, 59);
+  color: white;
+  font-weight: bold;
+}
+
+// Login Form
+
+.login-form {
+  background-color: $entrance;
+  text-align: center;
+  // margin-top: -2rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
+}
+
+// Footer (Login & Sign up)
+footer {
+  padding: 0.1rem;
+}
+.ftr-1 {
+  li {
+    display: inline;
+    color: #436CD6;
+    font-size: 1.15rem;
+    padding-right: 2.5rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p { 
+    font-size: 1.15rem;
+    padding-top: 0.5rem;
+    margin-left: 4rem; 
+  }
+}
+.lang {
+  position: relative;
+  top: 0.5rem;
+}
