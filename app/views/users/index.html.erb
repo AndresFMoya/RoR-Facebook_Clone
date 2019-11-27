@@ -10,11 +10,13 @@
         <% end %>
 
       <% elsif current_user.friend_requests.include?(user) %>
-        <%= form_with(method: :patch, url: '/friendships/:id') do |f| %>
+        <% @pre_friendship = user.friendships.find { |friendship| friendship.friend_id == current_user.id} %>
+        <%= form_with(model: @pre_friendship, method: :patch, remote: true) do |f| %>
           <%= f.submit 'Accept Friend', class: "btn btn-primary" %>
           <%= f.hidden_field :confirmed, value: true %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :friend_id, value: user.id %>
+          <%= f.hidden_field :id, value: @pre_friendship.id %>
         <% end %>
 
       <% elsif current_user.friends.include?(user) %>

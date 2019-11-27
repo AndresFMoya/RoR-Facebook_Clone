@@ -2,7 +2,7 @@
 
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_friendship
+  before_action :find_friendship, only: [:update]
 
   def create
     @friendship = Friendship.new(friendship_params)
@@ -20,16 +20,17 @@ class FriendshipsController < ApplicationController
 
   def update
     if @friendship.update(friendship_params)
-      flash[:success] = 'Friend Accepted!'
+      flash[:success] = "Friend request accepted!"
     else
-      flash[:danger] = "Error accepting friend"
+      flash[:warning] = "Error accepting request!"
     end
     redirect_back(fallback_location: root_path)
   end
 
   def find_friendship
-    @friendship = Friendship.find_by(friendship_params)
+    @friendship = Friendship.find_by(friendship_params_update)
   end
+
   # def destroy
   #   @post.destroy
   #   flash[:success] = 'Post deleted'
@@ -39,8 +40,12 @@ class FriendshipsController < ApplicationController
   private
 
   def friendship_params
-    params.require(:friendship).permit(:user_id, :friend_id, :confirmed)
+    params.require(:friendship).permit(:user_id, :friend_id, :confirmed, :id)
   end
 
-
+  def friendship_params_update
+    params.require(:friendship).permit(:id)
+  end
 end
+
+
