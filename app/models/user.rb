@@ -14,26 +14,32 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 40 }
 
   def friends
-    friends_array = friendships.map{|friendship| friendship.friend if friendship.confirmed}
-    friends_array += inverse_friendships.map{|friendship| friendship.user if friendship.confirmed}
+    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
+    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
     friends_array.compact
   end
 
   def pending_friends
-    friendships.map{|friendship| friendship.friend if !friendship.confirmed}.compact
+    friendships.map { |friendship| friendship.friend if !friendship.confirmed }.compact
   end
 
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact
+    inverse_friendships.map { |friendship| friendship.user if !friendship.confirmed }.compact
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship = inverse_friendships.find { |friendship| friendship.user == user }
     friendship.confirmed = true
     friendship.save
   end
 
   def friend?(user)
     friends.include?(user)
+  end
+
+  def newsfeed
+    friend_ids = "SELECT friend_id FROM friendships WHERE user_id = :user_id"
+    inverse_friend_ids = "SELECT user_id FROM friendships WHERE friend_id = :user_id"
+    Post.where("user_id IN (#{friend_ids + inverse_friend_ids}) OR user_id = :user_id", user_id: id)
   end
 end
