@@ -7,9 +7,9 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = Friendship.new(friendship_params)
     if @friendship.save
-      flash[:success] = "Friend request sent!"
+      flash[:success] = 'Friend request sent!'
     else
-      flash[:danger] = "Error sending request"
+      flash[:danger] = 'Error sending request'
     end
     redirect_back(fallback_location: root_path)
   end
@@ -20,9 +20,9 @@ class FriendshipsController < ApplicationController
 
   def update
     if @friendship.update(friendship_params)
-      flash[:success] = "Friend request accepted!"
+      flash[:success] = 'Friend request accepted!'
     else
-      flash[:warning] = "Error accepting request!"
+      flash[:warning] = 'Error accepting request!'
     end
     redirect_back(fallback_location: root_path)
   end
@@ -47,5 +47,3 @@ class FriendshipsController < ApplicationController
     params.require(:friendship).permit(:id)
   end
 end
-
-

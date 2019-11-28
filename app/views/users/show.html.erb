@@ -4,43 +4,8 @@
 
 <h3>Posts</h3>
 
+<%= render 'posts/new' %>
 
 <div class="post">´
-
-  <%= render 'layouts/post_form' %>
-
-  <% if @posts.any? %>
-    <% @posts.each do |post| %>
-      <%= post.content %>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
-      <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-      <% if pre_like %>
-        <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
-          <%= f.hidden_field :post_id, value: post.id %>
-          <%= f.submit 'Unlike', class: "btn btn-primary" %>
-        <% end %>
-      <% else %>
-        <%= form_with(model:Like, method: :post) do |f| %>
-          <%= f.hidden_field :post_id, value: post.id %>
-          <%= f.submit 'Like', class: "btn btn-primary" %>
-        <% end %>
-      <% end %>
-
-      <% if post.comments.any? %>
-        <h5>(<%= post.comments.count %>) Comments </h5>
-        <ol class="Comments">
-          <%= render post.comments %>
-        </ol>
-      <% end %>
-
-      <%= form_with(model: Comment.new) do |f| %>
-        <%= f.label :content %>
-        <%= f.text_field :content, class: 'form-control' %>
-        <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.submit "Save", class: "btn btn-primary" %>
-      <% end %>
-    <% end%>
-  <% end %>
-
+  <%= render @posts %>
 </div>

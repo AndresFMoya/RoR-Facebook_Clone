@@ -1,0 +1,38 @@
+  <ul>
+    <span><%= gravatar_for user %> </span>
+    <span><%= link_to user.name, user %></span>
+
+
+    <% if user.id == current_user.id %>
+
+    <% elsif current_user.pending_friends.include?(user) %>
+          <span>
+        <%= form_with(model: Friendship, method: :patch) do |f| %>
+          <%= f.submit 'Friend requested!', class: "btn btn-primary", disabled: true %>
+        <% end %>
+          </span>
+
+    <% elsif current_user.friend_requests.include?(user) %>
+      <% @pre_friendship = user.friendships.find { |friendship| friendship.friend_id == current_user.id} %>
+      <%= form_with(model: @pre_friendship, method: :patch, remote: true) do |f| %>
+        <%= f.submit 'Accept Friend', class: "btn btn-primary" %>
+        <%= f.hidden_field :confirmed, value: true %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :friend_id, value: user.id %>
+        <%= f.hidden_field :id, value: @pre_friendship.id %>
+      <% end %>
+
+    <% elsif current_user.friends.include?(user) %>
+      <%= form_with(model: Friendship, method: :patch) do |f| %>
+        <%= f.submit 'Friends', class: "btn btn-primary", disabled: true %>
+      <% end %>
+
+    <% else %>
+      <%= form_with(model: Friendship, method: :post) do |f| %>
+        <%= f.submit 'Request Friend', class: "btn btn-primary" %>
+        <%= f.hidden_field :confirmed, value: 'false' %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :friend_id, value: user.id %>
+      <% end %>
+    <% end %>
+  </ul>
