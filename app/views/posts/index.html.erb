@@ -4,7 +4,6 @@
   <% @posts.each do |post| %>
     <ul class = "post">
       <% post.id %>
-      <p class="user"><%= link_to post.user.name, user_path(post.user) %></p>
       <%= post.content %>
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>

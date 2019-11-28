@@ -1,4 +1,10 @@
-<h1> <%= @user.name %> </h1>
+<span><%= gravatar_for @user %></span>
+<span><h1> <%= @user.name %> </h1></span>
+<span><h4> <%= @user.email  %></h4></span><br>
+
+<h3>Posts</h3>
+
+
 <div class="post">´
 
   <%= render 'layouts/post_form' %>
