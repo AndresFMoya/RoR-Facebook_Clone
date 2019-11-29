@@ -33,6 +33,7 @@ header {
 
 // Body
 body {
+  background-color: $entrance;
   overflow: scroll;
   max-width: 100%;
 }
@@ -117,20 +118,18 @@ footer {
   width: 80%;
 }
 .show-stn-1 {
-  border: 1px solid red;
+  background-color: white;
+  height: 10rem;
   .inner { 
-    border: 1px solid green;
     margin: 0 auto;
     width: 60%; 
   }
   .user-img {
-    border: 1px solid;
     position: relative;
     left: 30%;
     width: 15%;
   }
   .user-info { 
-    border: 1px solid;
     bottom: 8rem;
     position: relative;
     left: 45%;
@@ -138,7 +137,8 @@ footer {
   }
 }
 .show-stn-2 {
-  border: 1px solid blue;
+  background-color: white;
+  h4 { margin-left: 1rem; }
 }
 .post-form {
   border-radius: 10px;
@@ -149,6 +149,27 @@ footer {
 }
 .pt-fm {
   margin: 0 auto;
-  padding-top: 3rem;
+  padding-top: 2rem;
   width: 70%; 
 }
+.post {
+  padding: 1rem;
+}
+.post-content { font-size: 2rem; }
+.ind-post { 
+  background-color: white;
+  border: 1px solid;
+  padding-bottom: 2rem; 
+  padding-top: 2rem;
+  margin-top: -0.9rem;
+}
+.user-name { font-size: 2.2rem; }
+.comm-label {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.comm-no { margin: 1.2rem; }
+.comments { 
+  margin-left: -5rem;
+}
+.divider { margin-top: 1rem; }
