@@ -1,11 +1,20 @@
-<span><%= gravatar_for @user %></span>
-<span><h1> <%= @user.name %> </h1></span>
-<span><h4> <%= @user.email  %></h4></span><br>
-
-<h3>Posts</h3>
-
-<%= render 'posts/new' %>
-
-<div class="post">´
-  <%= render @posts %>
+<div class="user">
+  <div class="show-stn-1">
+    <div class="clearfix inner">
+      <div class="user-img"><%= gravatar_for @user %></div>
+      <div class="user-info">
+        <h4><%= @user.name %></h4>
+        <h4><%= @user.email %></h4>
+      </div>
+    </div>
+  </div>
+  <div class="show-stn-2">
+    <div class="pt-fm">
+      <%= render 'posts/new' %>
+    </div><br><br>
+    <h4>Posts</h4>
+    <div class="post">
+      <%= render @posts %>
+    </div>
+  </div>
 </div>

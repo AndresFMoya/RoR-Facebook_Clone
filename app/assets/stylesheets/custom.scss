@@ -81,7 +81,6 @@ body {
 .login-form {
   background-color: $entrance;
   text-align: center;
-  // margin-top: -2rem;
   padding: 2rem;
   padding-bottom: 4rem;
 }
@@ -109,4 +108,47 @@ footer {
 .lang {
   position: relative;
   top: 0.5rem;
+}
+
+// User's (show) Page
+
+.user {
+  margin: 0 auto;
+  width: 80%;
+}
+.show-stn-1 {
+  border: 1px solid red;
+  .inner { 
+    border: 1px solid green;
+    margin: 0 auto;
+    width: 60%; 
+  }
+  .user-img {
+    border: 1px solid;
+    position: relative;
+    left: 30%;
+    width: 15%;
+  }
+  .user-info { 
+    border: 1px solid;
+    bottom: 8rem;
+    position: relative;
+    left: 45%;
+    width: 40%;
+  }
+}
+.show-stn-2 {
+  border: 1px solid blue;
+}
+.post-form {
+  border-radius: 10px;
+  height: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 70%;
+}
+.pt-fm {
+  margin: 0 auto;
+  padding-top: 3rem;
+  width: 70%; 
 }
