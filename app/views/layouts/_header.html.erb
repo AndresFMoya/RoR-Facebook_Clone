@@ -9,7 +9,6 @@
     <% else %>
       <% if action_name != "new" %>
         <span><%= link_to "Sign up", new_user_registration_path %></span>
-        <span><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %><span>
       <% end %>
     <% end %>
   </div>
