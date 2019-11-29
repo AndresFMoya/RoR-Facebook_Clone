@@ -1,0 +1,34 @@
+  <ul class = "post">
+    <% post.id %>
+    <%= post.content %>
+    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>
+
+    <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+      <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.submit 'Unlike', class: "btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <%= form_with(model:Like, method: :post) do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.submit 'Like', class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+
+    <% if post.comments.any? %>
+      <h5>(<%= post.comments.count %>) Comments </h5>
+      <ol class="Comments">
+        <%= render post.comments %>
+      </ol>
+    <% end %>
+
+    <%= form_with(model: Comment.new) do |f| %>
+      <%= f.label :comments %>
+      <%= f.text_field :content, class: 'form-control' %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit "Comment!", class: "btn btn-primary" %>
+    <% end %>
+
+  </ul>

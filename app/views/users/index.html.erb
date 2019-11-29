@@ -1,7 +1,3 @@
 <div>
-  <% @users.each do |user| %>
-    <ul>
-      <%= link_to user.name, user %>
-    </ul>
-  <% end %>
+ <%= render @users %>
 </div>
