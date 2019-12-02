@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :validatable
+  devise :omniauthable, omniauth_providers: %i[facebook]
   has_many :posts
   has_many :comments
   has_many :likes
@@ -12,6 +13,14 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, length: { maximum: 40 }
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+    end
+  end
 
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }

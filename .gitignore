@@ -35,3 +35,6 @@ yarn-debug.log*
 .generators
 .rakeTasks
 .idea
+
+# Ignore application configuration
+/config/application.yml
