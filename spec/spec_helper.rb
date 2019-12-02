@@ -103,12 +103,12 @@ def mock_auth_hash
       provider: 'facebook',
       uid: '123545',
       info: {
-        first_name: "Andrea",
-        last_name:  "Del Rio",
-        email:      "test@example.com"
+        first_name: 'Andrea',
+        last_name:  'Del Rio',
+        email:      'test@example.com'
       },
       credentials: {
-        token: "123456",
+        token: '123456',
         expires_at: Time.now + 1.week
       }
     })

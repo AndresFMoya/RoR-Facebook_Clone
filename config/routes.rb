@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   resources :posts
   resources :friendships
 
-  delete "/likes", to: "likes#destroy"
+  delete '/likes', to: 'likes#destroy'
   authenticated :user do
-    root "posts#index"
+    root 'posts#index'
   end
 
   devise_scope :user do
-    root to: "devise/sessions#new", as: :sign_up_root
+    root to: 'devise/sessions#new', as: :sign_up_root
   end
 
   resources :posts do
