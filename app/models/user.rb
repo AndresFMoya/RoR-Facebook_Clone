@@ -47,8 +47,8 @@ class User < ApplicationRecord
   end
 
   def newsfeed
-    friend_ids = "SELECT friend_id FROM friendships WHERE user_id = :user_id AND confirmed = true"
-    inverse_friend_ids = "SELECT user_id FROM friendships WHERE friend_id = :user_id AND confirmed = true"
+    friend_ids = 'SELECT friend_id FROM friendships WHERE user_id = :user_id AND confirmed = true'
+    inverse_friend_ids = 'SELECT user_id FROM friendships WHERE friend_id = :user_id AND confirmed = true'
     newsfeed_friends = Post.where("user_id IN (#{friend_ids}) OR user_id = :user_id", user_id: id)
     newsfeed_inverse_friends = Post.where("user_id IN (#{inverse_friend_ids})", user_id: id)
     newsfeed_friends + newsfeed_inverse_friends
