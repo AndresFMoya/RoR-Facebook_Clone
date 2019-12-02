@@ -97,20 +97,21 @@ RSpec.configure do |config|
 end
 
 def mock_auth_hash
-  if Rails.env.test?
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-      provider: 'facebook',
-      uid: '123545',
-      info: {
-        first_name: 'Andrea',
-        last_name:  'Del Rio',
-        email:      'test@example.com'
-      },
-      credentials: {
-        token: '123456',
-        expires_at: Time.now + 1.week
-      }
-    })
-  end
+  return unless Rails.env.test?
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
+    provider: 'facebook',
+    uid: '123545',
+    info: {
+      first_name: 'Andrea',
+      last_name: 'Del Rio',
+      email: 'test@example.com'
+    },
+
+    credentials: {
+      token: '123456',
+      expires_at: Time.now + 1.week
+    }
+  )
 end
