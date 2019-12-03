@@ -19,7 +19,10 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    if @friendship.update(friendship_params)
+    if @friendship.update(confirmed: true)
+      @confirmed_friendship = Friendship.new(user_id: @friendship.friend_id,
+                                             friend_id: @friendship.user_id, confirmed: 'true')
+      @confirmed_friendship.save
       flash[:success] = 'Friend request accepted!'
     else
       flash[:warning] = 'Error accepting request!'
@@ -30,12 +33,6 @@ class FriendshipsController < ApplicationController
   def find_friendship
     @friendship = Friendship.find_by(friendship_params_update)
   end
-
-  # def destroy
-  #   @post.destroy
-  #   flash[:success] = 'Post deleted'
-  #   redirect_back(fallback_location: root_path)
-  # end
 
   private
 

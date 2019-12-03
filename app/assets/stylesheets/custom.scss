@@ -33,6 +33,7 @@ header {
 
 // Body
 body {
+  background-color: $entrance;
   overflow: scroll;
   max-width: 100%;
 }
@@ -81,7 +82,6 @@ body {
 .login-form {
   background-color: $entrance;
   text-align: center;
-  // margin-top: -2rem;
   padding: 2rem;
   padding-bottom: 4rem;
 }
@@ -110,3 +110,66 @@ footer {
   position: relative;
   top: 0.5rem;
 }
+
+// User's (show) Page
+
+.user {
+  margin: 0 auto;
+  width: 80%;
+}
+.show-stn-1 {
+  background-color: white;
+  height: 10rem;
+  .inner { 
+    margin: 0 auto;
+    width: 60%; 
+  }
+  .user-img {
+    position: relative;
+    left: 30%;
+    width: 15%;
+  }
+  .user-info { 
+    bottom: 8rem;
+    position: relative;
+    left: 45%;
+    width: 40%;
+  }
+}
+.show-stn-2 {
+  background-color: white;
+  h4 { margin-left: 1rem; }
+}
+.post-form {
+  border-radius: 10px;
+  height: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 70%;
+}
+.pt-fm {
+  margin: 0 auto;
+  padding-top: 2rem;
+  width: 70%; 
+}
+.post {
+  padding: 1rem;
+}
+.post-content { font-size: 2rem; }
+.ind-post { 
+  background-color: white;
+  border: 1px solid;
+  padding-bottom: 2rem; 
+  padding-top: 2rem;
+  margin-top: -0.9rem;
+}
+.user-name { font-size: 2.2rem; }
+.comm-label {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.comm-no { margin: 1.2rem; }
+.comments { 
+  margin-left: -5rem;
+}
+.divider { margin-top: 1rem; }

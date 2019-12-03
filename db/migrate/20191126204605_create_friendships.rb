@@ -5,7 +5,7 @@ class CreateFriendships < ActiveRecord::Migration[6.0]
     create_table :friendships do |t|
       t.references :user, index: true, foreign_key: true
       t.references :friend, index: true
-      t.boolean :confirmed
+      t.boolean :confirmed, null: false, default: false
 
       t.timestamps null: false
     end

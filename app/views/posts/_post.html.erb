@@ -1,34 +1,35 @@
-  <ul class = "post">
-    <% post.id %>
-    <%= post.content %>
-    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    <span class="user"> Created by <%= link_to post.user.name, post.user.name %></span>
-
-    <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-    <% if pre_like %>
-      <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
-        <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.submit 'Unlike', class: "btn btn-primary" %>
-      <% end %>
-    <% else %>
-      <%= form_with(model:Like, method: :post) do |f| %>
-        <%= f.hidden_field :post_id, value: post.id %>
-        <%= f.submit 'Like', class: "btn btn-primary" %>
-      <% end %>
+<ul class="ind-post">
+  <% post.id %>
+  <span class="user-name"><%= link_to post.user.name, post.user.name %></span><br>
+  <p class="post-content"><%= post.content %><p>
+  
+  <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <%= form_with(model:Like, method: :delete, remote: true) do |f| %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit 'Unlike', class: "btn btn-primary" %><br><br>
     <% end %>
-
-    <% if post.comments.any? %>
-      <h5>(<%= post.comments.count %>) Comments </h5>
-      <ol class="Comments">
-        <%= render post.comments %>
-      </ol>
+  <% else %>
+    <%= form_with(model:Like, method: :post) do |f| %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit 'Like', class: "btn btn-primary" %><br><br>
     <% end %>
+  <% end %>
 
+  <span><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></span>
+  <% if post.comments.any? %>
+    <span class="comm-no"><%= post.comments.count %> <%= (post.comments.count) == 1 ? 'Comment' : 'Comments'%></span><br><br>
+    <p class="comm-label">Comments: <p>
+    <ol class="comments">
+      <%= render post.comments %>
+    </ol><br>
+  <% end %>
+
+  <div class="divider">
     <%= form_with(model: Comment.new) do |f| %>
-      <%= f.label :comments %>
-      <%= f.text_field :content, class: 'form-control' %>
+      <%= f.text_field :content, placeholder: "Write a comment...", class: 'post-form' %>
       <%= f.hidden_field :post_id, value: post.id %>
       <%= f.submit "Comment!", class: "btn btn-primary" %>
     <% end %>
-
-  </ul>
+  <div>
+</ul>
