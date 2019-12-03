@@ -26,9 +26,17 @@ header {
 .top-panel {
   float: right;
   position: relative;
+  right: -5rem;
   top: 1rem;
   width: 42%;
-  span { padding: 0.5rem; }
+  span {
+    font-size: 1.7rem; 
+    padding: 0.5rem;
+    a { 
+      color: white;
+      &:hover { color: rgb(127, 127, 179); }
+    }
+  }
 }
 
 // Body
@@ -173,3 +181,27 @@ footer {
   margin-left: -5rem;
 }
 .divider { margin-top: 1rem; }
+
+// User Index Page
+
+.u-index {
+  border-bottom: 1px solid rgb(163, 161, 161);
+  padding: 2rem;
+  width: 50%;
+  .u-name {
+    bottom: 2rem;
+    font-size: 2rem;
+    left: 1rem;
+    position: relative;
+  }
+  .u-btn {
+    bottom: 3.5rem;
+    left: 9.3rem;
+    position: relative;
+  }
+}
+
+// Post Index Page
+
+h1 { text-align: center; }
+
