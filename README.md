@@ -1,5 +1,9 @@
 # Facebook Clone
-This project consist of building and Test a Facebook clone, with a large portion of the core Facebook user functionality. 
+This project consist of building and Test a Facebook clone, with a large portion of the core Facebook user functionality. Real Facebook accounts Authentication was implemented.
+
+## Live Version
+
+[Facebook Clone](https://frozen-hamlet-01864.herokuapp.com) 
 
 ## ERD
 ![ERD](lib/assets/Facebook_Clone_ERD.jpg)
