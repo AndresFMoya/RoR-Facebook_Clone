@@ -19,7 +19,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    if @friendship.update(friendship_params)
+    if @friendship.update(confirmed: true)
       @confirmed_friendship = Friendship.new(user_id: @friendship.friend_id,
                                              friend_id: @friendship.user_id, confirmed: 'true')
       @confirmed_friendship.save
