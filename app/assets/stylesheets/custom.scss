@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 // Variables
-$facebook: #3b5998;
+$facebook: #000000;
 $entrance: #edf0f5;
 
 // Header
@@ -92,6 +92,11 @@ body {
   text-align: center;
   padding: 2rem;
   padding-bottom: 4rem;
+  color: #000000
+}
+
+.login-form a {
+  color: #000000
 }
 
 // Footer (Login & Sign up)
@@ -101,7 +106,7 @@ footer {
 .ftr-1 {
   li {
     display: inline;
-    color: #436CD6;
+    color: #0e1f56;
     font-size: 1.15rem;
     padding-right: 2.5rem;
     &:hover {
