@@ -1,4 +1,8 @@
-# Social Network
+<p>
+  <h1 align="center">Ruby on Rails - Social Network</h1>
+</p>
+<br>
+
 This project consist of building and Test a social network (Facebook clone), with a large portion of the core Facebook user functionality. Real Facebook accounts Authentication was implemented.
 <p align="center">
   <a href="https://www.ruby-lang.org/en/">
@@ -86,9 +90,15 @@ Give a ⭐️ if you like this project!
 
 This project is [MIT](https://github.com/AndresFMoya/RoR-Facebook_Clone/blob/develop/LICENSE) licensed.
 
-## Contact
-- **Andrés Moya** - [@andresfmoya](https://github.com/andresfmoya) I will love to hear about you at one of the following places! :heart:
+## 📞 Get in Touch!
+I will love to hear about you at one of the following places! :heart:
 
 - [LinkedIn](https://www.linkedin.com/in/andres-f-moya/)
 - [Twitter](https://www.twitter.com/andmedev/) 
 - <andresfmoya@gmail.com>.
+
+<p align="center">
+  <strong>
+    <a href="https://andresmoya.me">andresmoya.me</a>
+</strong>
+</p>
