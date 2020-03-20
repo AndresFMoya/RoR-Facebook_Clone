@@ -3,7 +3,7 @@
 </p>
 <br>
 
-This project consist of building and Test a social network (Facebook clone), with a large portion of the core Facebook user functionality. Real Facebook accounts Authentication was implemented.
+This project consists of building and Test a social network (Facebook clone), with a large portion of the core Facebook user functionality. Real Facebook accounts Authentication was implemented.
 <p align="center">
   <a href="https://www.ruby-lang.org/en/">
     <img src="https://img.shields.io/badge/Ruby-v2.6.5-brightgreen.svg" alt="ruby version">
