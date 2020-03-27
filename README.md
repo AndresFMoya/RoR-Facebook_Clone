@@ -13,15 +13,14 @@ This project consists of building and Test a social network (Facebook clone), wi
   </a>
 </p>
 
+[![Social NetWork Video](https://img.youtube.com/vi/eLGAqI2pYvc/0.jpg)](https://www.youtube.com/watch?v=eLGAqI2pYvc)
+
 ## ERD
 ![ERD](lib/assets/Facebook_Clone_ERD.jpg)
 
 In this project, we will build a Web App with the following technologies:
 - Ruby on Rails
 - PostgreSQL
-
-[![Social NetWork Video](https://img.youtube.com/vi/eLGAqI2pYvc/0.jpg)](https://www.youtube.com/watch?v=eLGAqI2pYvc)
-
 
 ## Technologies used
 
