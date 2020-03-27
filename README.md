@@ -20,6 +20,9 @@ In this project, we will build a Web App with the following technologies:
 - Ruby on Rails
 - PostgreSQL
 
+[![Social NetWork Video](https://img.youtube.com/vi/eLGAqI2pYvc/0.jpg)](https://www.youtube.com/watch?v=eLGAqI2pYvc)
+
+
 ## Technologies used
 
 - Ruby on Rails
